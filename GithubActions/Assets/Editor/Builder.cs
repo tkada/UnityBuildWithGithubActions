@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class Builder
 {
-    public static void Biild()
+    public static void AndroidBiild()
     {
         var output = "";
         var args = System.Environment.GetCommandLineArgs();
@@ -21,9 +21,12 @@ public class Builder
             }
         }
 
+        string[] scenes = { "Assets/Scenes/SampleScene.unity" };
+
         var option = new BuildPlayerOptions();
         option.locationPathName = output;
-        option.target = BuildTarget.StandaloneWindows64; //ビルドターゲットを設定. 今回はWin64
+        option.target = BuildTarget.Android; //ビルドターゲットを設定. 今回はAndroid
+        option.scenes = scenes;
         var result = BuildPipeline.BuildPlayer(option);
         if (result.summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded)
         {

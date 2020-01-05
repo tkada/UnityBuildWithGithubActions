@@ -60,3 +60,4 @@ crashlytics-build.properties
 
 GithubActions/Library/
 GithubActions/obj/
+GithubActions/Temp/
